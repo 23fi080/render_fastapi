@@ -39,7 +39,9 @@ async def root():
 def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
     ### コードいろいろ... ###
+from fastapi.responses import HTMLResponse #インポート
 
+### コードいろいろ... ###
 @app.get("/index")
 def index():
     html_content = """
