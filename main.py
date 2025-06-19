@@ -29,13 +29,50 @@ def omikuji():
 def index():
     html_content = """
     <html>
-        <head>
-            <title>Some HTML in here</title>
-        </head>
-        <body>
-            <h1>Look ma! HTML!</h1>
-        </body>
-    </html>
+     <head>
+    <meta charset="UTF-8">
+    <title>今日のどうぶつ</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: "Segoe UI", sans-serif;
+            text-align: center;
+            padding-top: 80px;
+        }
+        h1 {
+            color: #00796b;
+        }
+        #animal-name {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        #animal-desc {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌟 今日のどうぶつ 🌟</h1>
+    <div id="animal-name"></div>
+    <div id="animal-desc"></div>
+
+    <script>
+        const animals = [
+            { name: "ネコ 🐱", desc: "気まぐれでマイペース。でもたまに甘えてくる。" },
+            { name: "イヌ 🐶", desc: "忠実で元気いっぱい。走るのが大好き！" },
+            { name: "カピバラ 🦫", desc: "世界一おっとりした動物。温泉が好き。" },
+            { name: "フクロウ 🦉", desc: "夜のハンター。見た目はふわふわ、目がするどい。" },
+            { name: "ペンギン 🐧", desc: "氷の上でもスイスイ。泳ぐのが得意な鳥。" },
+            { name: "パンダ 🐼", desc: "笹を食べながらゴロゴロ。見てるだけで癒やされる。" },
+        ];
+
+        const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+        document.getElementById("animal-name").innerText = randomAnimal.name;
+        document.getElementById("animal-desc").innerText = randomAnimal.desc;
+    </script>
+</body>
+</html>
     """
     return HTMLResponse(content=html_content, status_code=200)
 
